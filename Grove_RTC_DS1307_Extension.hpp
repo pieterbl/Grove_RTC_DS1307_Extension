@@ -30,7 +30,9 @@
 #include <Arduino.h>
 #include "DS1307.h"
 
-class GroveRtcDs1307 {
+class String;
+
+class GroveRtcDs1307: public DS1307 {
 
 private:
 
@@ -42,8 +44,23 @@ public:
 	virtual ~GroveRtcDs1307() {
 	}
 
-	void initialize() {
+	void initializeDayOfWeekYMDHMS(uint8_t _dow, //
+			uint16_t _year, uint8_t _month, uint8_t _day, //
+			uint8_t _hour, uint8_t _minute, uint8_t _second) {
+
+		DS1307::fillDayOfWeek(_dow);
+		DS1307::fillByYMD(_year, _month, _day);
+		DS1307::fillByHMS(_hour, _minute, _second);
+
+		//write time to the RTC chip
+		DS1307::setTime();
 	}
+
+	const String getDateTimeString();
+
+private:
+
+	void addTwoDigitNumberWithZeroPrefix(String &str, uint8_t number);
 
 };
 

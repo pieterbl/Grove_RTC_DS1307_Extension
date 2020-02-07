@@ -26,3 +26,37 @@
  */
 #include "Grove_RTC_DS1307_Extension.hpp"
 
+void GroveRtcDs1307::addTwoDigitNumberWithZeroPrefix( //
+		String &str, uint8_t number) {
+
+	if (number < 10) {
+		str += '0';
+	}
+	str += number;
+}
+
+const String GroveRtcDs1307::getDateTimeString() {
+
+	DS1307::getTime();
+
+	String timeString = "";
+	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::hour);
+	timeString += ":";
+	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::minute);
+	timeString += ":";
+	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::second);
+
+	String dateString = "";
+	dateString += (2000 + DS1307::year);
+	dateString += "-";
+	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::month);
+	dateString += "-";
+	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::dayOfMonth);
+
+	String dateTime = "";
+	dateTime += dateString;
+	dateTime += " ";
+	dateTime += timeString;
+
+	return dateTime;
+}

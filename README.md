@@ -1,7 +1,11 @@
 # Grove\_RTC\_DS1307\_Extension
 
-Extension for: Seeed RTC DS1307 library
+Extension for: Seeedstudio, Grove - RTC DS1307 library
 (RTC\_DS1307, see [Required Libraries](#required-libraries) below).
+
+## Purpose
+
+This library was developed as a convenience wrapper for the Grove - RTC DS1307 library, and for usage in this GitHub [Grove LCD RGB Clock](https://github.com/pieterbl/Grove_LCD_RGB_Clock) project.
 
 ## License
 

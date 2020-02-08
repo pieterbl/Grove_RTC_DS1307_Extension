@@ -36,6 +36,28 @@ void GroveRtcDs1307::addTwoDigitNumberWithZeroPrefix( //
 }
 
 const String GroveRtcDs1307::getDateTimeString() {
+	String dateTime = "";
+	dateTime += getDateString();
+	dateTime += " ";
+	dateTime += getTimeString();
+	return dateTime;
+}
+
+const String GroveRtcDs1307::getDateString() {
+
+	DS1307::getTime();
+
+	String dateString = "";
+	dateString += (2000 + DS1307::year);
+	dateString += "-";
+	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::month);
+	dateString += "-";
+	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::dayOfMonth);
+
+	return dateString;
+}
+
+const String GroveRtcDs1307::getTimeString() {
 
 	DS1307::getTime();
 
@@ -46,17 +68,5 @@ const String GroveRtcDs1307::getDateTimeString() {
 	timeString += ":";
 	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::second);
 
-	String dateString = "";
-	dateString += (2000 + DS1307::year);
-	dateString += "-";
-	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::month);
-	dateString += "-";
-	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::dayOfMonth);
-
-	String dateTime = "";
-	dateTime += dateString;
-	dateTime += " ";
-	dateTime += timeString;
-
-	return dateTime;
+	return timeString;
 }

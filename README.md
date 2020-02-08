@@ -3,10 +3,6 @@
 Extension for: Seeed RTC DS1307 library
 (RTC\_DS1307, see [Required Libraries](#required-libraries) below).
 
-## Project Status
-
-UNDER CONSTRUCTION
-
 ## License
 
 License information can be found [here](./LICENSE.md).

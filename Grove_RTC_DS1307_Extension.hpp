@@ -58,6 +58,10 @@ public:
 
 	const String getDateTimeString();
 
+	const String getDateString();
+
+	const String getTimeString();
+
 private:
 
 	void addTwoDigitNumberWithZeroPrefix(String &str, uint8_t number);

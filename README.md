@@ -32,8 +32,10 @@ Following hardware was used for this project:
 This library requires:
 
 - <https://github.com/pieterbl/RTC_DS1307>
-  - which is a (possibly) slightly modified version of <https://github.com/Seeed-Studio/RTC_DS1307>
+  - which is a slightly modified version of <https://github.com/Seeed-Studio/RTC_DS1307>
   - none of the performed changes, modifies the original library behavior
+- Standard Arduino "Wire" library
+  - \<Wire.h\> is required by "DS1307.cpp" from the (Grove) RTC\_DS1307 library
 
 ## Provided Examples
 

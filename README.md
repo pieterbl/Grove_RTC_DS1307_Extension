@@ -41,5 +41,4 @@ This library requires:
 
 | Example | Description |
 | ------- | ----------- |
-| tbd | tbd |
-| tbd | tbd |
+| PrintTimeToSerial | Shows how to initialize the clock in setup(), and print date/time string in loop(). |

@@ -40,5 +40,6 @@ void setup() {
 
 void loop() {
 	Serial.println(clock.getDateTimeString());
+	delay(500);
 }
 

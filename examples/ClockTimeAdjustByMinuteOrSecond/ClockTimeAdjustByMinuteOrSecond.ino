@@ -31,9 +31,20 @@
 GroveRtcDs1307 clock;
 
 void setup() {
-	Serial.begin(9600);
 
 	clock.begin();
+
+	Serial.begin(9600);
+	Serial.println();
+	Serial.println();
+
+	Serial.println("Before increaseClockByMinutesAndSeconds");
+	Serial.println(clock.getDateTimeString());
+
+	Serial.println("Calling increaseClockByMinutesAndSeconds");
+	clock.increaseClockByMinutesAndSeconds(0, 1);
+
+	Serial.println("After increaseClockByMinutesAndSeconds");
 }
 
 void loop() {

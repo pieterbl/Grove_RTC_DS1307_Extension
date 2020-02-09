@@ -34,6 +34,9 @@ void setup() {
 	Serial.begin(9600);
 
 	clock.begin();
+
+	// Sunday, 2020-FEB-02 14:30:00
+	clock.initializeDayOfWeekYMDHMS(SUN, 2020, 2, 9, 14, 35, 0);
 }
 
 void loop() {

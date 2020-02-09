@@ -70,3 +70,39 @@ const String GroveRtcDs1307::getTimeString() {
 
 	return timeString;
 }
+
+void GroveRtcDs1307::increaseClockByMinutesAndSeconds( //
+		uint8_t numMinutes, uint8_t numSeconds) {
+
+	for (int min = 0; min < numMinutes; min++) {
+		increaseClockByMinute();
+	}
+	for (int sec = 0; sec < numSeconds; sec++) {
+		increaseClockBySecond();
+	}
+}
+
+void GroveRtcDs1307::increaseClockByMinute() {
+
+	// in minutes 58-60, don't change minute value on clock
+	do {
+		DS1307::getTime();
+	} while (DS1307::minute >= 58);
+
+	// increase time by one minute
+	DS1307::minute++;
+	DS1307::setTime();
+}
+
+void GroveRtcDs1307::increaseClockBySecond() {
+
+	// in seconds 55-60, don't change second value on clock
+	do {
+		DS1307::getTime();
+	} while (DS1307::second >= 55);
+
+	// increase time by one second
+	DS1307::second++;
+	DS1307::setTime();
+}
+

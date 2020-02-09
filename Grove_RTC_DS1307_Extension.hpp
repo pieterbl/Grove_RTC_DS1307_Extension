@@ -62,6 +62,13 @@ public:
 
 	const String getTimeString();
 
+	void increaseClockByMinutesAndSeconds( //
+			uint8_t numMinutes, uint8_t numSeconds);
+
+	void increaseClockByMinute();
+
+	void increaseClockBySecond();
+
 private:
 
 	void addTwoDigitNumberWithZeroPrefix(String &str, uint8_t number);

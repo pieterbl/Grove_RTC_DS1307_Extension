@@ -41,4 +41,6 @@ This library requires:
 
 | Example | Description |
 | ------- | ----------- |
-| PrintTimeToSerial | Shows how to initialize the clock in setup(), and print date/time string in loop(). |
+| First run [ClockTimeInitializeOnce](./examples/ClockTimeInitializeOnce/ClockTimeInitializeOnce.ino) | Initialize the clock in setup(), prints date/time string in loop(). |
+| Then run this few times [ClockTimeAdjustByMinuteOrSecond](./examples/ClockTimeAdjustByMinuteOrSecond/ClockTimeAdjustByMinuteOrSecond.ino) | Adjusts the clock time by minute or second in setup(), prints date/time string in loop(). |
+| Finally just run [PrintTimeToSerial](./examples/PrintTimeToSerial/PrintTimeToSerial.ino) | Prints date/time string in loop(). |

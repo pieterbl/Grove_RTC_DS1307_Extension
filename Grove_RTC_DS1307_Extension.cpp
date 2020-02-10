@@ -84,7 +84,10 @@ void GroveRtcDs1307::increaseClockByMinutesAndSeconds( //
 
 void GroveRtcDs1307::increaseClockByMinute() {
 
-	// in minutes 58-60, don't change minute value on clock
+	// in minutes 58-60, don't change minute value on the clock.
+	// this is just a precaution, to ensure we don't get unexpected results.
+	// this method is only use to initially get the clock time correct.
+	// the delay in few cases, won't hurt at all.
 	do {
 		DS1307::getTime();
 	} while (DS1307::minute >= 58);
@@ -96,7 +99,10 @@ void GroveRtcDs1307::increaseClockByMinute() {
 
 void GroveRtcDs1307::increaseClockBySecond() {
 
-	// in seconds 55-60, don't change second value on clock
+	// in seconds 55-60, don't change second value on the clock.
+	// this is just a precaution, to ensure we don't get unexpected results.
+	// this method is only use to initially get the clock time correct.
+	// the delay in few cases, won't hurt at all.
 	do {
 		DS1307::getTime();
 	} while (DS1307::second >= 55);

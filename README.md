@@ -41,6 +41,10 @@ This library requires:
 
 | Example | Description |
 | ------- | ----------- |
-| First run [ClockTimeInitializeOnce](./examples/ClockTimeInitializeOnce/ClockTimeInitializeOnce.ino) | Initialize the clock in setup(), prints date/time string in loop(). |
-| Then run this few times [ClockTimeAdjustByMinuteOrSecond](./examples/ClockTimeAdjustByMinuteOrSecond/ClockTimeAdjustByMinuteOrSecond.ino) | Adjusts the clock time by minute or second in setup(), prints date/time string in loop(). |
-| Finally just run [PrintTimeToSerial](./examples/PrintTimeToSerial/PrintTimeToSerial.ino) | Prints date/time string in loop(). |
+| First run [ClockTimeInitializeOnce](./examples/ClockTimeInitializeOnce/ClockTimeInitializeOnce.ino), to a time quite close to the current time. | Initialize the clock in setup(), prints date/time string in loop(). |
+| Then run this few times [ClockTimeAdjustByMinuteOrSecond](./examples/ClockTimeAdjustByMinuteOrSecond/ClockTimeAdjustByMinuteOrSecond.ino), to adjust the missing minutes and/or seconds. | Adjusts the clock time by minute or second in setup(), prints date/time string in loop(). |
+| Finally just run [PrintTimeToSerial](./examples/PrintTimeToSerial/PrintTimeToSerial.ino). | Prints date/time string in loop(). |
+
+**TAKE CARE:** Once you are done with `ClockTimeAdjustByMinuteOrSecond` ... don't reset/restart your Arduino, it will again repeat the currently programmed action, e.g. increase time by some minutes and/or seconds. Even if you should have exactly reached/set the current time.
+
+**TO BE SAFE:** Your last action should be to upload (e.g.) `PrintTimeToSerial`.

@@ -33,6 +33,7 @@
 class GroveRtcDs1307TimeLibSyncProvider {
 
 private:
+
 	static DS1307 *__CLOCK;
 
 public:
@@ -41,6 +42,8 @@ public:
 		__CLOCK = clock;
 		setSyncProvider(requestSync);
 	}
+
+private:
 
 	static time_t requestSync() {
 
@@ -90,4 +93,4 @@ public:
 
 };
 
-#endif
+#endif // __GROVE_RTC_DS1307_TIMELIB_SYNC_PROVIDER_HPP__

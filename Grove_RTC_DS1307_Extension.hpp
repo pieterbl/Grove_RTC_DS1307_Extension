@@ -75,4 +75,4 @@ private:
 
 };
 
-#endif
+#endif // __GROVE_RTC_DS1307_EXTENSION_HPP__

@@ -25,4 +25,40 @@
  SOFTWARE.
  */
 
+#include <Arduino.h>
+#include <Grove_RTC_DS1307_Extension.hpp>
+#include <Grove_RTC_DS1307_TimeLibSyncProvider.hpp>
+#include <Time_Extension.hpp>
 
+// define RTC clock
+GroveRtcDs1307 clock;
+
+// define Time_Extension wrapper for RTC clock
+TimeExtension timeObj;
+
+void setup() {
+
+	Serial.begin(9600);
+
+	// begin the DS1307 RTC (real time clock)
+	clock.begin();
+
+	// ensures that the Time.h (or TimeLib.h) is in-sync with the DS1307 RTC (real time clock)
+	//
+	// the times printed below should usually be the same (they may differ every now and then)
+	//
+	GroveRtcDs1307TimeLibSyncProvider::initialize(&clock);
+}
+
+void loop() {
+
+	delay(1000);
+
+	Serial.print("GroveRtcDs1307: ");
+	Serial.println(clock.getDateTimeString()); // print time, it should be the same as with timeObj below
+
+	Serial.print("TimeLib       : ");
+	Serial.println(timeObj.getDateTimeString()); // print time, it should be the same as with clock above
+
+	Serial.println();
+}

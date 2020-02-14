@@ -44,6 +44,7 @@ This library requires:
 | First run [ClockTimeInitializeOnce](./examples/ClockTimeInitializeOnce/ClockTimeInitializeOnce.ino), to a time quite close to the current time. | Initialize the clock in setup(), prints date/time string in loop(). |
 | Then run this few times [ClockTimeAdjustByMinuteOrSecond](./examples/ClockTimeAdjustByMinuteOrSecond/ClockTimeAdjustByMinuteOrSecond.ino), to adjust the missing minutes and/or seconds. | Adjusts the clock time by minute or second in setup(), prints date/time string in loop(). |
 | Finally just run [PrintTimeToSerial](./examples/PrintTimeToSerial/PrintTimeToSerial.ino). | Prints date/time string in loop(). |
+| [TimeLibSyncProviderDemo](./examples/TimeLibSyncProviderDemo/TimeLibSyncProviderDemo.ino) | The demo shows how the `GroveRtcDs1307TimeLibSyncProvider` class can be used to synchronize the `DS1307` (or `GroveRtcDs1307`) Real-Time-Clock (RTC), and then print out a standard `HH:MM:SS` string, with just a few lines of code. It demonstrates how the libraries `Time.h` (aka `TimeLib.h`), `Grove_RTC_DS1307_Extension.hpp`, `Grove_RTC_DS1307_TimeLibSyncProvider.hpp` and `Time_Extension.hpp` work together. |
 
 **TAKE CARE:** Once you are done with `ClockTimeAdjustByMinuteOrSecond` ... don't reset/restart your Arduino, it will again repeat the currently programmed action, e.g. increase time by some minutes and/or seconds. Even if you should have exactly reached/set the current time.
 

@@ -35,37 +35,57 @@ void GroveRtcDs1307::addTwoDigitNumberWithZeroPrefix( //
 	str += number;
 }
 
+/*
+ * Straight-forward, likely the not the fasted or most memory optimized implementation,
+ * without much magic.
+ */
 const String GroveRtcDs1307::getDateTimeString() {
+
 	String dateTime = "";
+	dateTime.reserve(24);
+
 	dateTime += getDateString();
-	dateTime += " ";
+	dateTime += ' ';
 	dateTime += getTimeString();
+
 	return dateTime;
 }
 
+/*
+ * Straight-forward, likely the not the fasted or most memory optimized implementation,
+ * without much magic.
+ */
 const String GroveRtcDs1307::getDateString() {
 
 	DS1307::getTime();
 
 	String dateString = "";
+	dateString.reserve(12);
+
 	dateString += (2000 + DS1307::year);
-	dateString += "-";
+	dateString += '-';
 	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::month);
-	dateString += "-";
+	dateString += '-';
 	addTwoDigitNumberWithZeroPrefix(dateString, DS1307::dayOfMonth);
 
 	return dateString;
 }
 
+/*
+ * Straight-forward, likely the not the fasted or most memory optimized implementation,
+ * without much magic.
+ */
 const String GroveRtcDs1307::getTimeString() {
 
 	DS1307::getTime();
 
 	String timeString = "";
+	timeString.reserve(10);
+
 	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::hour);
-	timeString += ":";
+	timeString += ':';
 	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::minute);
-	timeString += ":";
+	timeString += ':';
 	addTwoDigitNumberWithZeroPrefix(timeString, DS1307::second);
 
 	return timeString;

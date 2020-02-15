@@ -2,6 +2,7 @@
 
 Extension for: Seeedstudio, Grove - RTC DS1307 library
 (RTC\_DS1307, see [Required Libraries](#required-libraries) below).
+Offers wrapper for `DS1307` class, synchronization implementation to work with the `Time` library, simple YYYY-MM-SS / HH:MM:SS calculation.
 
 ## Purpose
 
